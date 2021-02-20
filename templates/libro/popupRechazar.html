@@ -1,0 +1,29 @@
+{&#37; extends "base_formulario.html" %} {% block head %}
+<script type="text/javascript">
+    function guardar(name) {
+        document.getElementById(name).href = "{% url recaudos.views.guardarRechazo %}";
+        $('#items_recaudos2').click();
+    }
+</script>
+{% endblock head %}
+
+<form id="forma" class="wufoo" method="get" action="{% url recaudos.views.guardarRechazo %}">
+    <table>
+        <tr>
+            <td align="center">
+                {{form.title_motivo_rechazo}}
+            </td>
+            <td align="center">
+                {{form.campo_rechazo}}
+            </td>
+        </tr>
+    </table>
+
+    <!-- 1era opcion de boton -->
+    <a name="guardar" id="guardar" onclick="guardar(this.id)">
+        <input class="btTxt" type="button" value="Guardar" />
+    </a>
+
+    <!-- 2da opcion de boton submit-->
+    <input class="btTxt" type="submit" value="Guardar" name="guardar" />
+</form>

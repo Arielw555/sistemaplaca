@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=
+    , initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    {%if mensaje %}
+    <div>
+        Alumno Eliminado perfectamente
+
+    </div>
+
+    {%endif %}
+
+    <a class="btn btn-primary" href="{%url 'libro:crear_autor' %}">Crear</a>
+
+    <table class="table table-striped ">
+
+        <thead class="thead-inverse">
+            <tr>
+                <th scope="col">ID</th>
+                <th scope="col">Nombre</th>
+                <th scope="col">Chasis</th>
+                <th scope="col">No. de Placa</th>
+                <th scope="col">Compania</th>
+                <th scope="col">FechaOrden</th>
+                <th scope="col">Endoso</th>
+                <th scope="col">Fecha Endoso</th>
+                <th scope="col">Estado</th>
+                <th scope="col">fecha</th>
+                <th scope="col">Cedula</th>
+                <th scope="col">Comentarios</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for Placa in placas %}
+            <tr>
+                <td scope="row">{{Placa.id}}</td>
+                <td scope="row">{{Placa.nombre}}</td>
+                <td scope="row">{{Placa.Chasis}}</td>
+                <td scope="row">{{Placa.NoPlaca}}</td>
+                <td scope="row">{{Placa.Compania}}</td>
+                <td scope="row">{{Placa.fechaOrden}}</td>
+                <td scope="row">{{Placa.endoso}}</td>
+                <td scope="row">{{Placa.FechaEndoso}}</td>
+                <td scope="row">{{Placa.Estado}}</td>
+                <td scope="row">{{Placa.fecha}}</td>
+                <td scope="row">{{Placa.cedula}}</td>
+                <td scope="row">{{Placa.Comentario}}</td>
+                <td> <a class="btn btn-primary" href="{%url 'libro:editar_autor' Placa.id %}">Modificar</a> </td>
+                <td> <a class="btn btn-danger" href="{%url 'libro:eliminar_autor' Placa.id%}">Eliminar</a></td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+</body>
+
+</html>
